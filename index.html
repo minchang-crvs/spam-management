@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스팸 신고 조치결과 응답</title>
+    <style>
+        /* 화면 꽉 채우기 & 스크롤 없애기 */
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <iframe id="portal-frame" src=""></iframe>
+
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbxnjk87MekFClz1AQLIM23GaGiwF7yuWVIJ93N9D9YlJGOyPPjUzIhfL4sImxbiQJdO/exec"; 
+
+        // 1. 현재 주소창의 파라미터(?key=...)를 가져옴
+        const params = window.location.search;
+
+        // 2. iframe 주소에 파라미터를 이어 붙여서 로딩 (자동 로그인 기능 복구!)
+        document.getElementById('portal-frame').src = GAS_URL + params;
+    </script>
+</body>
+</html>
